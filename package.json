@@ -1,0 +1,21 @@
+{
+  "name": "gabui-react",
+  "version": "0.0.1",
+  "description": "GabUI Components",
+  "main": "index.js",
+  "author": "Mateus Gabi Moreira",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "dependencies": {
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "reactstrap": "^7.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@storybook/react": "^4.1.11",
+    "babel-loader": "^8.0.5"
+  }
+}
