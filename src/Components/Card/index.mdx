@@ -1,0 +1,48 @@
+---
+name: Card
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import { Card } from "./../../index";
+
+# Card
+
+## Default
+
+<PropsTable of={Card} />
+
+### Example
+
+<Playground>
+    <Card
+        image="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+        title="My post title"
+        subtitle='5min ago'
+        content={() => {
+            return <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+        }}    
+    />
+</Playground>
+
+
+## Social Network
+
+<PropsTable of={Card} />
+
+### Example
+
+<Playground>
+    <Card
+        type='social'
+        avatar={{
+            url: `https://randomuser.me/api/portraits/women/88.jpg`,
+            alt: `Marina Suarez`
+        }}
+        title="My post title"
+        subtitle='5min ago'
+        content={() => {
+            return <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+        }}    
+    />
+</Playground>

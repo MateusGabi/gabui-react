@@ -3,11 +3,14 @@ import {
   Card,
   CardBody,
   CardImg,
+  CardLink,
   CardSubtitle,
   CardText,
-  CardTitle
+  CardTitle,
+  Media
 } from "reactstrap";
 
+import PropTypes from "prop-types";
 import React from "react";
 
 export const MyCardImage = ({ image }) => {
@@ -15,28 +18,71 @@ export const MyCardImage = ({ image }) => {
     return null;
   }
 
-  return (
-    <CardImg
-      top
-      width="100%"
-      src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-      alt="Card image cap"
-    />
-  );
+  return <CardImg top width="100%" src={image} alt="Card image cap" />;
 };
 
-export const MyCard = ({ image, title, subtitle, content }) => (
+export const MyCardDefault = ({ image, title, subtitle, content }) => (
   <Card>
-    <MyCardImage image={image} />
+    {image ? (
+      <CardImg top width="100%" src={image} alt="Card image cap" />
+    ) : null}
     <CardBody>
-      <CardTitle>Card title</CardTitle>
-      <CardSubtitle>Card subtitle</CardSubtitle>
-      <CardText>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </CardText>
+      <CardTitle>{title}</CardTitle>
+      <CardSubtitle>{subtitle}</CardSubtitle>
+      {content instanceof Function ? content() : <CardText>{content}</CardText>}
     </CardBody>
   </Card>
 );
 
+export const MyCardSocial = ({
+  avatar: { url, alt },
+  title,
+  subtitle,
+  content
+}) => {
+  return (
+    <Card>
+      <CardBody>
+        <Media>
+          <Media left href="#">
+            <img src={url} alt={alt} />
+          </Media>
+          <Media body>
+            <Media heading>{title}</Media>
+            <p>
+              <small>{subtitle}</small>
+            </p>
+            <div>{content()}</div>
+          </Media>
+        </Media>
+      </CardBody>
+    </Card>
+  );
+};
+
+const MyCard = props => {
+  switch (props.type) {
+    case "default":
+      return <MyCardDefault {...props} />;
+    case "social":
+      return <MyCardSocial {...props} />;
+    default:
+      break;
+  }
+  return null;
+};
+
+MyCard.propTypes = {
+  type: PropTypes.oneOf(["default", "social"]),
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  content: PropTypes.func.isRequired
+};
+
+MyCard.defaultProps = {
+  type: "default"
+};
+
+export { MyCard };
 export default MyCard;
