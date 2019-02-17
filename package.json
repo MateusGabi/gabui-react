@@ -6,7 +6,8 @@
   "author": "Mateus Gabi Moreira",
   "license": "MIT",
   "scripts": {
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^16.8.2",
@@ -15,7 +16,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^4.1.11",
-    "babel-loader": "^8.0.5"
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "jest": "^24.1.0"
   }
 }
