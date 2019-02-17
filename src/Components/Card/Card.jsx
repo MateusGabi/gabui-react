@@ -10,6 +10,7 @@ import {
   Media
 } from "reactstrap";
 
+import Image from "../Image";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -45,7 +46,7 @@ export const MyCardSocial = ({
       <CardBody>
         <Media>
           <Media left href="#">
-            <img src={url} alt={alt} />
+            <Image circled src={url} />
           </Media>
           <Media body>
             <Media heading>{title}</Media>
