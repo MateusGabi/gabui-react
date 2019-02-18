@@ -8,9 +8,19 @@ This project aims to be an extension (or fork) of ReactStrap to build some new c
 
 ```
 npm install
-docker build -t katielly .
-docker run -it --rm -v $(pwd):/code katielly bash
-> cd bootstrap-4.3.1/
-> npm install
-> npm run dist
+cd bootstrap-4.3.1/
+npm install
+```
+
+### Generate Bootstrap build
+
+```
+cd bootstrap-4.3.1/
+npm run dist
+```
+
+### Run Docz
+
+```
+npm run docz:dev
 ```
